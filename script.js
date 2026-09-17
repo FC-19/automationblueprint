@@ -4,6 +4,14 @@ document.querySelector('.workforce')?.remove();
 document.querySelector('.method')?.style.setProperty('padding-bottom', '55px');
 document.querySelector('.audience')?.style.setProperty('padding-top', '30px');
 
+const toolsFaq = document.querySelector('.faq-list details');
+toolsFaq?.insertAdjacentHTML('afterend', '<details><summary>Are the tools free? <span>+</span></summary><p>No. You will be shown how to pay about $20 to get access to both a ChatGPT subscription and a Codex subscription. The workflows you build are designed to help you turn that small monthly cost into useful work, services, and income. You will also be shown how to access DeepSeek inside Codex at a much lower rate.</p></details>');
+document.querySelectorAll('.faq-list summary').forEach((summary) => {
+  if (summary.textContent.includes('Does AI work completely on its own?')) summary.closest('details')?.remove();
+});
+document.querySelector('.statement-note')?.remove();
+document.querySelector('.hero-note')?.remove();
+
 menu?.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   menu.setAttribute('aria-expanded', String(open));
@@ -25,9 +33,9 @@ if (incomeCard) {
   incomeCard.querySelector('h3').innerHTML = 'Build a second,<br>third, or fourth<br>source of income.';
   incomeCard.querySelector('p').textContent = 'Learn how to use AI to monetize skills you have never learned before, fill the knowledge gaps, build a first version, test a service, and earn an income from it.';
 }
-const accessLink = 'https://wa.me/237672754178?text=Hello%20Emmanuel%2C%20I%27d%20like%20to%20get%20access%20to%20AAB.';
-const purchaseBand = `<section class="purchase-band"><div class="wrap purchase-inner"><div><p class="eyebrow">READY TO LEARN THE SHIFT?</p><h2>Get access to AAB.</h2><p>Learn how to turn AI into practical systems for your work, business, and next idea.</p></div><div class="purchase-side"><strong>49,999 FCFA</strong><small>Discount: <span></span></small><a class="button button-gold purchase-button" href="${accessLink}" target="_blank" rel="noopener">Get access to AAB <span>↗</span></a></div></div></section>`;
-const purchaseBandTwo = `<section class="purchase-band"><div class="wrap purchase-inner"><div><p class="eyebrow">YOUR NEXT WORKFLOW STARTS HERE</p><h2>Build something<br>that gives you time back.</h2><p>Learn how to guide AI through real tasks, connect the steps, and create a system you can keep improving.</p></div><div class="purchase-side"><strong>49,999 FCFA</strong><small>Discount: <span></span></small><a class="button button-gold purchase-button" href="${accessLink}" target="_blank" rel="noopener">Get access to AAB <span>↗</span></a></div></div></section>`;
+const accessLink = 'https://selar.com/4434yzm941';
+const purchaseBand = `<section class="purchase-band"><div class="wrap purchase-inner"><div><p class="eyebrow">READY TO LEARN THE SHIFT?</p><h2>Get access to AAB.</h2><p>Learn how to turn AI into practical systems for your work, business, and next idea.</p></div><div class="purchase-side"><strong>Access fee: <span>30,000 FCFA</span></strong><small>Discount Fee: <span>15,000 FCFA</span></small><a class="button button-gold purchase-button" href="${accessLink}" target="_blank" rel="noopener">Get access to AAB <span>↗</span></a></div></div></section>`;
+const purchaseBandTwo = `<section class="purchase-band"><div class="wrap purchase-inner"><div><p class="eyebrow">YOUR NEXT WORKFLOW STARTS HERE</p><h2>Build something<br>that gives you time back.</h2><p>Learn how to guide AI through real tasks, connect the steps, and create a system you can keep improving.</p></div><div class="purchase-side"><strong>Access fee: <span>30,000 FCFA</span></strong><small>Discount Fee: <span>15,000 FCFA</span></small><a class="button button-gold purchase-button" href="${accessLink}" target="_blank" rel="noopener">Get access to AAB <span>↗</span></a></div></div></section>`;
 document.querySelector('.delegate')?.insertAdjacentHTML('afterend', purchaseBand);
 const curriculum = document.querySelector('.curriculum');
 curriculum?.insertAdjacentHTML('afterend', purchaseBandTwo);
@@ -38,8 +46,16 @@ if (footerButton) {
   footerButton.target = '_blank';
   footerButton.rel = 'noopener';
   footerButton.innerHTML = 'Get access to AAB <span>↗</span>';
-  footerButton.insertAdjacentHTML('beforebegin', '<div class="footer-price"><strong>49,999 FCFA</strong><span>Discount: </span></div>');
+  footerButton.insertAdjacentHTML('beforebegin', '<div class="footer-price"><strong>Access fee: <span>30,000 FCFA</span></strong><span>Discount Fee: <span>15,000 FCFA</span></span></div>');
 }
+
+document.querySelectorAll('a.button').forEach((button) => {
+  if (button.textContent.includes('Get access') || button.textContent.includes('Join AAB')) {
+    button.href = accessLink;
+    button.target = '_blank';
+    button.rel = 'noopener';
+  }
+});
 
 const creatorMarkup = `<section class="creator-band"><div class="wrap creator-inner reveal"><div><p class="eyebrow">THE COURSE CREATOR</p><h2>Learn the shift<br>with <em>Emmanuel Cobbi.</em></h2></div><div class="creator-note"><p>A practical guide for people who want to stop doing everything manually and start building workflows that give them time back.</p><a class="creator-link" href="https://wa.me/237672754178?text=Hello%20Emmanuel%2C%20I%27m%20interested%20in%20the%20AAB%20course." target="_blank" rel="noopener">Emmanuel Cobbi <span>↗</span></a><small>Message Emmanuel on WhatsApp</small></div></div></section>`;
 const curriculumSection = document.querySelector('.curriculum');
